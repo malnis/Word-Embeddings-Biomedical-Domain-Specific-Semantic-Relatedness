@@ -162,7 +162,7 @@ if __name__ == '__main__':
                 if word_1_in_vocab_bool and not word_2_in_vocab_bool:
                     # If word 2 is a multiword term we could possible get embedding for it and then use it
                     if '_' in word_2:
-                        multiterm_emb = get_multiterm_emb(word_2, vocab, model, method)
+                        multiterm_emb = get_multiterm_emb(word_2, vocab, model)
                         # If the multiterm embedding is None then some term within it was OOV, and this pair is OOV
                         if multiterm_emb is None:
                             sim.append(None)
@@ -182,8 +182,8 @@ if __name__ == '__main__':
                     word_2_is_multi_bool = '_' in word_2
                     # If both words are multiword term we could possible get embeddings for them
                     if word_1_is_multi_bool and word_2_is_multi_bool:
-                        multiterm_emb_1 = get_multiterm_emb(word_1, vocab, model, method)
-                        multiterm_emb_2 = get_multiterm_emb(word_2, vocab, model, method)
+                        multiterm_emb_1 = get_multiterm_emb(word_1, vocab, model)
+                        multiterm_emb_2 = get_multiterm_emb(word_2, vocab, model)
                         # if both terms have embeddings, aka are not none then get their sim
                         if multiterm_emb_1 is not None and multiterm_emb_2 is not None:
                             sim.append(1 - spatial.distance.cosine(multiterm_emb_1, multiterm_emb_2))

@@ -35,10 +35,9 @@ methods_full = ['fasttext-webE_Rel',
                 'fasttext-oasE_Rel',
                 'fasttext-pub+oasE_Rel']
 
-methods_pub = ['fasttext-pubmed_Rel',
-                'fasttext-pubmedS_Rel',
-                'fasttext-pubmedTMS_Rel',
-                'fasttext-pubmed_Rel']
+methods_pub = [ 'fasttext-pubmed_full_Rel',
+                'fasttext-pubmed_fullSubword_Rel'
+                ]
 
 
 
@@ -66,7 +65,7 @@ if __name__ == '__main__':
     elif methods_evaluated == 'full':
         methods = methods_full
     elif methods_evaluated == 'pub':
-        methods = methods_bio
+        methods = methods_pub
     else:
         print("Error. Methods specification.")
         sys.exit(1)
